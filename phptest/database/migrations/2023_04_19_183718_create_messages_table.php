@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('contents');
             $table->binary('image')->nullable();
             $table->timestamps();
-            $table->integer('message_id')->unsigned();
-            $table->foreign('message_id')
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
                     ->onCascade('delete');
