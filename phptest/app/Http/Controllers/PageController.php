@@ -36,7 +36,7 @@ class PageController extends Controller
         $User = Users::where('username', 'LIKE', '%'.$search.'%') 
         ->orWhere('name', 'LIKE', '%'.$search.'%')
         ->get();
-return response($arrayMessages, 201);
+return response($User, 201);
     }
 
 
