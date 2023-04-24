@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PageController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,8 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/ext/setUser', [PageController::class, 'setUser']);
 Route::get('/ext/getUsers', [PageController::class, 'getUsers']);
-
-
 
 Route::post('/ext/setMessage', [PageController::class, 'setMessage']);
 Route::get('/ext/getMessages', [PageController::class, 'getMessages']);
