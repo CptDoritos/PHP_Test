@@ -72,8 +72,8 @@ return response($arrayMessages, 201);
 			->orWhere('name', 'LIKE', '%'.$search.'%')
 			->get();
         $userMessages=[];
-        if(sizeof($user)>0){
-            $idUser = $user[0]->id;
+        if(sizeof($users)>0){
+            $idUser = $users[0]->id;
             $messages = Users::find($idUser)->users;
         }
 
