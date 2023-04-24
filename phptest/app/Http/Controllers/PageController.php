@@ -12,7 +12,19 @@ use App\Models\Messages;
 
 class PageController extends Controller
 {
-    //
+    public function setUser(Request $request){
+
+        $fields = $reques->validate([
+            'username' => 'required|string',
+            'name' => 'required|string',
+            'password' => 'required|string'
+        ]);
+
+    }
+
+
+
+
     public function getMessages(){
         $arrayMessages = Messages::all();
         return response($arrayMessages, 201);
@@ -28,7 +40,7 @@ class PageController extends Controller
         $users = Users::where('username', 'LIKE', '%'.$search.'%')
 			->orWhere('name', 'LIKE', '%'.$search.'%')
 			->get();
-        $items=[];
+        $userMessages=[];
         if(sizeof($user)>0){
             $idUser = $user[0]->id;
             $messages = Users::find($idUser)->users;
@@ -40,3 +52,4 @@ class PageController extends Controller
         return response($users, 201);
     }
 }
+

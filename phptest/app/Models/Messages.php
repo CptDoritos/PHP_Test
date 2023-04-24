@@ -18,7 +18,6 @@ class Messages extends Model
     //protected $table = 'tbl_messages'; in case your table name convention is different
     protected $fillable=[
 	'contents',
-	'image',
 	'users_id'
     ];
 

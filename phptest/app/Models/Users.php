@@ -18,8 +18,8 @@ class Users extends Model
     //protected $table = 'tbl_users'; in case your table name convention is different
     protected $fillable=[
         'username',
-        'profile_image',
-	    'name'
+	    'name',
+        'password'
     ];
 
     public function messages(): HasMany

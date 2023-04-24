@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('username');
-            $table->binary('profile_image')->nullable();
             $table->string('name');
+            $table->string('password');
             $table->timestamps();
         });
     }
