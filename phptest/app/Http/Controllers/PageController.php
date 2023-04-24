@@ -22,7 +22,7 @@ class PageController extends Controller
         $user = Users::create([
             'username' => $fields['username'],
             'name' => $fields['name'],
-            'password' => $fields['password']
+            'password' => md5($fields['password'])
         ]);
         return response($user, 201);
 
