@@ -18,7 +18,7 @@ class Messages extends Model
     //protected $table = 'tbl_messages'; in case your table name convention is different
     protected $fillable=[
 	'contents',
-	'users_id'
+	'user_id'
     ];
 
     public function users(): BelongsTo

@@ -17,3 +17,23 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('/ext/setUser', [PageController::class, 'setUser']);
+Route::get('/ext/getUsers', [PageController::class, 'getUsers']);
+
+
+
+Route::post('/ext/setMessage', [PageController::class, 'setMessage']);
+Route::get('/ext/getMessages', [PageController::class, 'getMessages']);
+
+
+Route::post('/ext/getMessage/{search}', [PageController::class, 'getMessage']);
+Route::get('/ext/getUser/{search}', [PageController::class, 'getUser']);
+
+Route::get('/ext/getMessagesByUsers/{search}', [PageController::class, 'getMessagesByUsers']);
+
+
+
+
+

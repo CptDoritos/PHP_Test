@@ -14,15 +14,46 @@ class PageController extends Controller
 {
     public function setUser(Request $request){
 
-        $fields = $reques->validate([
+        $fields = $request->validate([
             'username' => 'required|string',
             'name' => 'required|string',
             'password' => 'required|string'
         ]);
+        $user = Users::create([
+            'username' => $fields['username'],
+            'name' => $fields['name'],
+            'password' => $fields['password']
+        ]);
+        return response($user, 201);
 
     }
 
+    public function getUsers(){
+        $arrayUsers = Users::all();
+        return response($arrayUsers, 201);
+    }
+    public function getUser($search){
+        $User = Users::where('username', 'LIKE', '%'.$search.'%') 
+        ->orWhere('name', 'LIKE', '%'.$search.'%')
+        ->get();
+return response($arrayMessages, 201);
+    }
 
+
+    public function setMessage(Request $request){
+        $fields = $request -> validate([
+        
+        'contents' => 'required|string', 
+        'user_id' => 'required|integer'
+        
+    ]);
+
+    $message = Messages::create([
+        'contents' => $fields['contents'],
+        'user_id' => $fields['user_id']
+    ]);
+    return response($message, 201);
+    }
 
 
     public function getMessages(){
