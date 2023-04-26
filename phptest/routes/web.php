@@ -20,3 +20,14 @@ Route::get('/', function () {
 });
 
 Route::get('/getUsers', [PageController::class, 'getUsers']);
+
+
+Route::get('/getMessages', [PageController::class, 'getMessages']);
+
+//Route::post('setMessage/{contents}/{user_id}', [PageController::class, 'setMessage']);
+//Route::post('setUser/{username}/{name}/{password}', [PageController::class, 'setMessage']);
+
+Route::get('/getMessagesByUsers/{search}', [PageController::class, 'getMessagesByUsers']);
+
+
+
