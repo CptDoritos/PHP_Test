@@ -19,13 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/newUser', function (){
+    return view('setuser');
+});
+
+Route::get('/newMessage', function (){
+    return view('setmessage');
+});
+
 Route::get('/getUsers', [PageController::class, 'getUsers']);
 
 
 Route::get('/getMessages', [PageController::class, 'getMessages']);
 
 //Route::post('setMessage/{contents}/{user_id}', [PageController::class, 'setMessage']);
-//Route::post('setUser/{username}/{name}/{password}', [PageController::class, 'setMessage']);
+//Route::post('setUser/{username}/{name}/{password}', [PageController::class, 'setUser']);
 
 Route::get('/getMessagesByUsers/{search}', [PageController::class, 'getMessagesByUsers']);
 
