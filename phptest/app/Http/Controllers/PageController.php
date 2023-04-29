@@ -44,12 +44,14 @@ return response($User, 201);
         $fields = $request -> validate([
         
         'contents' => 'required|string', 
+        'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'user_id' => 'required|integer'
         
     ]);
 
     $message = Messages::create([
         'contents' => $fields['contents'],
+        'image' => $fields['image'],
         'user_id' => $fields['user_id']
     ]);
     return response($message, 201);

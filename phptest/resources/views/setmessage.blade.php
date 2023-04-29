@@ -13,6 +13,11 @@
 <h5>Message Contents: </h5>
 <input type="text"></input>
 
+
+<h5>Image: </h5>
+<input type="file" accept=".jpg, .jpeg, .png"></input>
+
+
 <h5>Your user id: </h5>
 <input type="text"></input>
 
