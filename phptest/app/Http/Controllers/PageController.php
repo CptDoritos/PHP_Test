@@ -9,6 +9,8 @@ use Illuminate\Http\Response;
 use App\Models\Users;
 use App\Models\Messages;
 
+use Illuminate\Support\Facades\Storage;
+
 
 class PageController extends Controller
 {
@@ -39,7 +41,7 @@ class PageController extends Controller
 return response($User, 201);
     }
 
-
+    /*
     public function setMessage(Request $request){
         $fields = $request -> validate([
         
@@ -56,6 +58,30 @@ return response($User, 201);
     ]);
     return response($message, 201);
     }
+    */
+
+    public function setMessage(Request $request){
+    $fields = $request->validate([
+        'contents' => 'required|string', 
+        'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'user_id' => 'required|integer'
+    ]);
+
+    // Save image file to storage and get the file path
+    $imagePath = null;
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('public/images');
+        $imagePath = Storage::url($imagePath);
+    }
+
+    $message = Messages::create([
+        'contents' => $fields['contents'],
+        'image' => $imagePath,
+        'user_id' => $fields['user_id']
+    ]);
+
+    return response($message, 201);
+}
 
 
     public function getMessages(){
