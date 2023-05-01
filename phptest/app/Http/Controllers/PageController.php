@@ -57,7 +57,7 @@ return response($User, 201);
 
     $message = Messages::create([
         'contents' => $fields['contents'],
-        'image' => asset($imagePath),
+        'image' => $imagePath,
         'user_id' => $fields['user_id']
     ]);
 
